@@ -1,0 +1,11 @@
+<h1 ><%= @email.object %></h1>
+<br /> 
+<div ><%= @email.body%></div>
+<br /> 
+<div>
+    <a href="<%= email_path(@email) %>" data-method="DELETE" 
+    class="btn btn-danger" role="button"><i class="fas fa-trash-alt"></i> Supprimer</a>
+
+    <a href="<%= email_path(@email) %>" data-method="PUT" 
+    class="btn btn-warning" role="button"><i class="fas fa-trash-alt"></i> Marquer comme non lu</a>
+</div>
