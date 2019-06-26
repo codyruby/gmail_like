@@ -16,7 +16,7 @@
 
         <tr>
         <% @emails.each do |email|%>
-            <td ><%= button_to "#{email.object}", email_path(email.id), method: :get, remote: true %></td>   
+            <td ><%= button_to "#{email.object}", email_path(email.id), method: :get, remote: true, class: "btn" %></td>   
         </tr>
         </tbody>
              <% end %>
