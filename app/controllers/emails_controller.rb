@@ -1,5 +1,6 @@
 class EmailsController < ApplicationController
   def index
+    @emails = Email.all.reverse
   end
 
   def show
@@ -9,6 +10,13 @@ class EmailsController < ApplicationController
   end
 
   def create
+    @email = Email.create(object: Faker::Lorem.sentence, body: Faker::Movie.quote)
+    
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
+    end
+     
   end
 
   def edit
