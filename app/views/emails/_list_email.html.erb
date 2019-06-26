@@ -1,6 +1,6 @@
    <tbody id="email_object">
         <tr>
-            <td><%= @email.object %></td>              
+            <td><%= link_to "#{@email.object}", email_path(email) %></td>              
             <td></td>
         </tr>
     </tbody>

@@ -18,7 +18,7 @@
 
         <tr>
         <% @emails.each do |email|%>
-            <td><%= email.object %></td>              
+            <td><%= link_to "#{email.object}", email_path(email) %></td>              
             <td></td>
         </tr>
     
