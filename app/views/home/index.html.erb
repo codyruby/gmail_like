@@ -1,0 +1,71 @@
+<h1 class="text-center mb-4">Welcome to my todolist app</h1>
+<%= render 'layouts/task_form'  %>
+<div class="container">
+
+  
+  <ul class="category-title">
+    <% @categories.each do  |category|%>
+    <li class="category-show"><%= category.title  %></li>
+    <div class="card" id="delete_task">
+      <ul>
+        <% category.tasks.each do |task|  %>
+          <div class="category-content" style="display:none">
+            <div id="task_<%=task.title%>">
+              <li class="active_1" id="category_<%=category.title%>" >
+                <%= task.title  %>
+                <% unless task.deadline.nil? %>
+                  , to read: <%= task.deadline.strftime('%D')  %>
+                <% end %>
+                <div id='task_statuts'>
+                  <p>Done:
+                    <%= check_box_tag :status, 1, false, data: { remote: true, url: '/tasks', params: { id: task.id, status: task.status}.to_param, method: "put" }%>
+                    <%= button_to "Delete Image", task, method: :delete, remote: true, data: { confirm: "Are you sure?" } %>
+                  </p>
+                </div>               
+              </li>
+            </div>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+  </ul>
+</div>
+
+<%= render 'modals'  %>
+
+
+<!-- CAROUSEL -->
+
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade" >
+        <img src="https://robohash.org/eumdoloreset.png?size=300x300&amp;set=set1" style="width:50%"/>
+  </div>
+
+  <div class="mySlides fade">
+        <img src="https://robohash.org/maximepraesentiumvoluptates.png?size=300x300&amp;set=set1" style="width:50%" />
+  </div>
+
+  <div class="mySlides fade">
+        <img src="https://robohash.org/rerumeiusquod.png?size=300x300&amp;set=set1" style="width:50%" />
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+
+
