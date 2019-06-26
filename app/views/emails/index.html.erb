@@ -4,25 +4,33 @@
     <div>    
         <p><%= button_to "Recevoir un email", emails_path, method: :post, remote: true, class: "btn btn-info" %></p>       
     </div>
+    <div class="tab">
     <table class="table table-bordered">
         <thead>
         <tr>
             <th>Liste des emails</th>
-            <th>Contenu de l'email sélectionné</th>
         </tr>
         </thead>
-
-            
 
         <tbody id="email_object">
 
         <tr>
         <% @emails.each do |email|%>
-            <td><%= link_to "#{email.object}", email_path(email) %></td>              
-            <td></td>
+            <td ><%= button_to "#{email.object}", email_path(email.id), method: :get, remote: true %></td>   
         </tr>
-    
         </tbody>
              <% end %>
+    </table>
+    <table class="table table-bordered">
+    
+     <tr>
+            <th>Contenu de l'email sélectionné</th>
+        </tr>
+        </thead>
+        <tbody >
+                <tr>
+                    <td><div id="email_body"></div></td>            
+                </tr>
+        </tbody>
     </table>
     </div>
