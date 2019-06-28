@@ -12,15 +12,33 @@
         </tr>
         </thead>
 
-        <tbody >
-
-        <tr>
-        <% @emails.each do |email|%>
-            <td id="email_object"><%= button_to "#{email.object}", email_path(email.id), method: :get, remote: true, class: "btn" %></td>   
-        </tr>
+        <tbody id="email_object">
+            <tr>
+        
+            <% @emails.each do |email|%>
+                <% if email.read == true %>    
+                        <td>                 
+                            <%= button_to "#{email.object}", email_path(email.id), method: :get, remote: true, class: "btn" %>             
+                        </td>                   
+                    </tr>
+                    
+                <% else %>  
+                
+                    <tr>            
+                        <td class="read">
+                            <div id="email_object">
+                                <%= button_to "#{email.object}", email_path(email.id), method: :get, remote: true, class: "btn btn-info" %>
+                            </div>
+                        </td>                 
+                    </tr>
+                
+                <% end %>
+                
         </tbody>
-             <% end %>
+            <% end %>     
+             
     </table>
+    
     <table class="table table-bordered">
     
      <tr>
@@ -36,4 +54,4 @@
                 </tr>
         </tbody>
     </table>
-    </div>
+    </>
