@@ -3,8 +3,8 @@
 <div ><%= @email.body%></div>
 <br /> 
 <div>
-    <a href="<%= email_path(@email) %>" data-method="DELETE" 
-    class="btn btn-danger" role="button"><i class="fas fa-trash-alt"></i> Supprimer</a>
+    <%= button_to 'Supprimer'.html_safe, email_path(email.id), method: :delete, remote: true, class: "btn btn-danger" %>
+
 
     <a href="<%= email_path(@email) %>" data-method="PUT" 
     class="btn btn-warning" role="button"><i class="fas fa-trash-alt"></i> Marquer comme non lu</a>

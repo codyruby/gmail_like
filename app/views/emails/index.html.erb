@@ -12,11 +12,11 @@
         </tr>
         </thead>
 
-        <tbody id="email_object">
+        <tbody >
 
         <tr>
         <% @emails.each do |email|%>
-            <td ><%= button_to "#{email.object}", email_path(email.id), method: :get, remote: true, class: "btn" %></td>   
+            <td id="email_object"><%= button_to "#{email.object}", email_path(email.id), method: :get, remote: true, class: "btn" %></td>   
         </tr>
         </tbody>
              <% end %>
@@ -27,9 +27,12 @@
             <th>Contenu de l'email sélectionné</th>
         </tr>
         </thead>
-        <tbody >
+        <tbody id="body_email_content">
                 <tr>
-                    <td><div id="email_body"></div></td>            
+                    <td>
+                        <div id="email_body">
+                        </div>
+                    </td>            
                 </tr>
         </tbody>
     </table>
