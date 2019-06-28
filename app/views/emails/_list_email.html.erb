@@ -1,6 +1,6 @@
 
         <tr>
-            <td><%= link_to "#{@email.object}", email_path(email) %></td>              
+            <td><%= button_to "#{email.object}", email_path(email.id), method: :get, remote: true, class: "btn" %></td>              
         </tr>
 
              
