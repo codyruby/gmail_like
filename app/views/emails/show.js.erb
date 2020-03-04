@@ -1,0 +1,3 @@
+var body = document.getElementById('email_body')
+body.innerHTML = ""
+body.insertAdjacentHTML("afterbegin", "<%= j render 'body_email', email: @email %>")

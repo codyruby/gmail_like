@@ -1,0 +1,11 @@
+<h1 ><%= @email.object %></h1>
+<br /> 
+<div ><%= @email.body%></div>
+<br /> 
+<div>
+    <%= button_to 'Supprimer'.html_safe, email_path(email.id), method: :delete, remote: true, class: "btn btn-danger" %>
+
+
+    <a href="<%= email_path(@email) %>" data-method="PUT" 
+    class="btn btn-warning" role="button"><i class="fas fa-trash-alt"></i> Marquer comme non lu</a>
+</div>
